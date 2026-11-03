@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theamankumarsingh.github.io/sitemap.xml
