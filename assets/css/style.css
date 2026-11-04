@@ -22,6 +22,10 @@
   }
 }
 
+html {
+  overflow-x: clip;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -83,10 +87,21 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 1rem 0;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
   background-color: color-mix(in srgb, var(--bg), transparent 20%);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 1rem 0;
 }
 
 nav {
@@ -140,19 +155,34 @@ nav {
 
 @media (max-width: 640px) {
   nav {
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between; /* even space between the 4 links */
+    align-items: center;
     gap: 0.5rem;
   }
   .nav-links {
-    gap: 0.5rem 1.25rem;
-    flex-wrap: wrap;
+    display: contents; /* links become direct grid items of nav */
   }
-  .nav-links a, .btn {
+  .nav-brand {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
+  .btn {
+    grid-column: 4;
+    grid-row: 1;
+    justify-self: end; /* CV sits on the right, same row as the name */
+  }
+  .nav-links a {
     padding: 0.5rem 0;
     min-height: 44px;
     display: flex;
     align-items: center;
+  }
+  .nav-links .btn {
+    padding: 0.35rem 0.8rem; /* same as desktop */
+    min-height: 0;           /* no tall box */
+    justify-content: center;
   }
 }
 
