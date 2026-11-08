@@ -338,6 +338,12 @@ footer {
   scroll-margin-top: 5rem;
 }
 
+@media (max-width: 640px) {
+  [id] {
+    scroll-margin-top: 7.5rem;
+  }
+}
+
 /* Print */
 @media print {
   nav, .btn, #theme-toggle {
