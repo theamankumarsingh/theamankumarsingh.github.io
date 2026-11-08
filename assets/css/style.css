@@ -132,7 +132,9 @@ nav {
 
 .nav-links a:hover,
 .nav-links a:focus-visible,
-.nav-links a[aria-current="page"] {
+.nav-links a[aria-current="page"],
+.nav-links a.nav-active,
+.nav-brand.nav-active {
   color: var(--link);
 }
 
