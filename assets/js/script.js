@@ -41,3 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => observer.observe(section));
 });
+
+fetch("https://theamankumarsingh.goatcounter.com/counter/TOTAL.json")
+  .then(r => r.json())
+  .then(d => { document.getElementById("total-views").textContent = d.count; })
+  .catch(() => {});
